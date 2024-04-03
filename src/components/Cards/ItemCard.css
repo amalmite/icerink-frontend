@@ -1,0 +1,14 @@
+.item-card {
+  max-width: 24rem;
+  min-height: 20rem;
+}
+
+.item-footer {
+  height: 4rem;
+  background-color: #8c8c8c !important;
+  color: #ffffff !important;
+}
+
+.item-footer:hover {
+  background-color: #f26a28 !important;
+}

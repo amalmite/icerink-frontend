@@ -1,0 +1,8 @@
+.nav-link-hover:hover {
+  background-color: #D8854F;
+  color: #000000; 
+}
+
+.nav-link {
+  height: 80px;
+}
