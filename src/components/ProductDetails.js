@@ -41,7 +41,7 @@ export const Product = [
 
   {
     id: "3",
-    title: "ICY DELIGHTS: CHILDRENS JOY ON THE SKATING RINK",
+    title: "ICY DELIGHTS: CHILDRENS JOY ON THE SKATING",
     sub_title: "Enjoy RINK",
     description:
       "Children cheerfully lace on their skates on the ice rink, creating a chorus of laughs.Ice skating takes place on frozen surfaces like lakes or indoor rinks, with participants wearing ice skates equipped with sharp blades for precise maneuverability. It encompasses various disciplines such as figure skating, speed skating, and ice hockey, each with its unique set of techniques and rules.",
@@ -54,7 +54,7 @@ export const Product = [
     id: "4",
     image: img1,
     sub_title: "Bring your friend and enjoy",
-    title: "BUY 1 AND GET 1 FREE. LIMITED TIME ",
+    title: "BUY 1 AND GET 1 FREE . AVAILABLE ON LIMITED TIME ",
     description:
       "Bring your friend and enjoy. We are Going to pay for your friend.Ice skating takes place on frozen surfaces like lakes or indoor rinks, with participants wearing ice skates equipped with sharp blades for precise maneuverability. It encompasses various disciplines such as figure skating, speed skating, and ice hockey, each with its unique set of techniques and rules.",
     price: "150",

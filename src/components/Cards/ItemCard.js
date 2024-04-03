@@ -1,10 +1,8 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import "./ItemCard.css";
-import { useNavigate } from "react-router-dom";
 
-const ItemCard = ({ image, title, ft, id }) => {
-  const navigate = useNavigate();
+const ItemCard = ({ image, title, ft }) => {
   return (
     <>
       <Card className="item-card b-zero shadow-sm">
@@ -21,7 +19,6 @@ const ItemCard = ({ image, title, ft, id }) => {
         </Card.Body>
         <Card.Footer
           className="item-footer d-flex justify-content-center align-items-center b-zero "
-          onClick={() => navigate(`/details/${id}`)}
         >
           {ft}
         </Card.Footer>
