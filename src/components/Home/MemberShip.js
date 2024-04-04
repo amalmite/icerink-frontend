@@ -12,45 +12,51 @@ const MemberShip = () => {
     <div
       style={{
         backgroundColor: "white",
-        paddingLeft: "12%",
-        paddingRight: "12%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems:'center',
+        padding:'5%'
       }}
     >
-      <Container>
-        <Row className="align-items-center p-5 ">
-          <Col>
+      <Container className="p-md-4">
+        <Row className="align-items-center justify-content-center mb-5 px-md-5">
+          <Col sm={12} md={12} lg={3}>
             <hr />
           </Col>
-          <Col xs="auto">
-            <p className="fs-2 fw-light" style={{ margin: "0 4px" }}>
+          <Col sm={12} md={12} lg={6}>
+            <p className="fs-1 fw-light text-center" style={{ margin: "0 4px" }}>
               MEMBERSHIP
             </p>
           </Col>
-          <Col>
+          <Col sm={12} md={12} lg={3}>
             <hr />
           </Col>
         </Row>
 
-        <Row xs={1} md={2} lg={4} className="g-5">
+        {/* Membsership cards */}
+
+        <Row className="justify-content-center px-md-5 p-sm-2">
           {membershipProduct.map((product) => (
-            <Col key={product.id}>
-              <ItemCard
-                image={product.image}
-                ft="BOOK NOW"
-                title={product.title}
-                id={product.id}
-              />
+            <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="d-flex justify-content-center">
+              <div style={{ width: "260px" ,padding:'2%' }}>
+                <ItemCard
+                  image={product.image}
+                  ft="BOOK NOW"
+                  title={product.title}
+                  id={product.id}
+                />
+              </div>
             </Col>
           ))}
         </Row>
 
         <div className="my-5">
-          <p className="text-center">
+          <p className="text-center" style={{fontFamily:'inh'}}>
             Discover the thrill of gliding across the smooth, glistening surface
             of our state-of-the-art ice rink at SKATE GATE. Nestled in the heart
             of Sharjah, our facility offers an exhilarating and unforgettable
             experience for ice skating enthusiasts of all ages and skill levels.
-          </p>{" "}
+          </p>
         </div>
       </Container>
     </div>

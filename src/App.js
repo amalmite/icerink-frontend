@@ -6,11 +6,11 @@ import AfterPayment from './components/Payment/AfterPayment';
 import Header from './frontend_components/Header';
 import Footer from './frontend_components/Footer';
 import UserDetails from './components/UserDetails/UserDetails';
-import Login from './components/Login';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import { Mycontext } from './components/context';
 import { useState } from 'react';
+import Login from './components/Auth/Login';
 
 
 const MainLayout = ({ children }) => (

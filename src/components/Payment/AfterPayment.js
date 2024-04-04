@@ -8,9 +8,12 @@ const AfterPayment = () => {
   const{booking,userData,total}=useContext(Mycontext)
 
   return (
+
+    // After payment page
+
     <div className='after-main' style={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image})` }}>
           
-          <Card className='after-card'>
+      <Card className='after-card'>
         <CardTitle className="text-center pt-3">Thank you for Booking</CardTitle>
         <CardBody>
           <Row className="mb-3">

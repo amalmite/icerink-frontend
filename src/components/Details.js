@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Row, Col, Container, Card, Image } from "react-bootstrap";
 import "./Details.css";
-import Test from "./Test";
+import Cart from "./Cart";
 import ProductCard from "./Cards/ProductCard";
 import { Product } from "./ProductDetails";
 import { useParams } from "react-router-dom";
@@ -13,7 +13,7 @@ const Details = () => {
   const { id } = useParams();
   const productDetails = Product.find((product) => product.id === id);
 
-  const {  setBooking } = useContext(Mycontext);
+  const { setBooking } = useContext(Mycontext);
   const [formData, setFormData] = useState({
     selectDate: "",
     membership: "",
@@ -50,7 +50,6 @@ const Details = () => {
     });
   };
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -59,6 +58,7 @@ const Details = () => {
     <>
       <div className=" clearfix"></div>
       <Container className="mt-5 pt-2">
+        {/* detail page */}
         <Card className="b-zero">
           <Row className="align-items-center">
             <Col
@@ -88,48 +88,65 @@ const Details = () => {
               <h5>{productDetails.sub_title}</h5>
               <p className="p-text">{productDetails.description}</p>
               <h6>PRICE : AED {productDetails.price}</h6>
-              <h6>DURATION : {productDetails.duration}</h6>
             </Col>
           </Row>
         </Card>
+
         <div className=" clearfix"></div>
         <div className="row ml-0 mr-0 mt-0">
-          <Row className="align-items-center p-5">
-            <Col>
+          {/* skating title */}
+          <Row className="align-items-center justify-content-center mb-5 px-md-5">
+            <Col sm={12} md={12} lg={3}>
               <hr />
             </Col>
-            <Col xs="auto">
-              <p className="fs-2 fw-light" style={{ margin: "0 4px" }}>
+            <Col sm={12} md={12} lg={6}>
+              <p
+                className="fs-1 fw-light text-center"
+                style={{ margin: "0 4px" }}
+              >
                 SKATING PRODUCT
               </p>
             </Col>
-            <Col>
+            <Col sm={12} md={12} lg={3}>
               <hr />
             </Col>
           </Row>
 
-          <Row xs={1} md={2} lg={4} className="px-4">
+          {/* Skating product */}
+
+          <Row className="justify-content-center m-1">
             {skateProduct.map((product) => (
-              <Col className="mt-3" key={product.id}>
-                <ProductCard
-                  image={product.image}
-                  name={product.title}
-                  id={product.id}
-                />
+              <Col
+                key={product.id}
+                xs={12}
+                sm={6}
+                md={4}
+                lg={3}
+                className="d-flex justify-content-center align-items-center"
+              >
+                <div style={{ width: "260px", padding: "2%" }}>
+                  <ProductCard
+                    image={product.image}
+                    name={product.title}
+                    id={product.id}
+                  />
+                </div>
               </Col>
             ))}
           </Row>
         </div>
 
+        {/* Booking Form */}
+
         <div style={{ marginTop: "10%" }}>
-          <h5 className="title-bg">BOOK NOW</h5>
           <div className="booking-body">
+            <h5 className="title-bg">BOOK NOW</h5>
             <form className="row g-4" onSubmit={handleSubmit}>
               <div className="col-md-3">
                 <input
                   type="date"
                   id="selectDate"
-                  className="form-control"
+                  className="p-2"
                   value={formData.selectDate}
                   onChange={handleInputChange}
                   required
@@ -138,7 +155,7 @@ const Details = () => {
               <div className="col-md-3">
                 <select
                   id="membership"
-                  className="form-control"
+                  className="p-2"
                   style={{ height: "42px" }}
                   value={formData.membership}
                   onChange={handleInputChange}
@@ -156,7 +173,7 @@ const Details = () => {
               <div className="col-md-3">
                 <select
                   id="selectSession"
-                  className="form-control"
+                  className="p-2"
                   style={{ height: "42px" }}
                   value={formData.selectSession}
                   onChange={handleInputChange}
@@ -173,7 +190,7 @@ const Details = () => {
                 <input
                   type="number"
                   id="numAdmits"
-                  className="form-control"
+                  className="p-2"
                   min={1}
                   required
                   value={formData.numAdmits}
@@ -190,8 +207,10 @@ const Details = () => {
           </div>
         </div>
       </Container>
+
+      {/* Cart Page */}
       <div className="pt-4">
-        <Test />
+        <Cart />
       </div>
     </>
   );

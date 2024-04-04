@@ -1,9 +1,9 @@
 .product-card {
     overflow: hidden;
     border-radius: 0.5rem;
-    max-width: 350px;
+    /* width: 250px; */
     background-color: #fff;
-    color: #cb3a05;
+    color: #BF364F;
   }
   
  
@@ -40,10 +40,11 @@
   }
   
   .product-action {
+
     margin-top: 1rem;
     display: inline-block;
     width: 100%;
-    background-color:#DC3545 ;
+    background-color:#B7364F ;
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 4px;
@@ -54,5 +55,6 @@
     text-transform: uppercase;
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
+    border: none;
   }
   

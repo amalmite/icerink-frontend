@@ -8,12 +8,15 @@ import {
     Form,
     Image
 } from 'react-bootstrap';
-import image1 from '../images/single.jpg'
-import logo from '../images/logo.png'
+import image1 from '../../images/single.jpg'
+import logo from '../../images/logo.png'
 import './Login.css'
 
 function Login() {
     return (
+
+        // logi page
+        
         <Container className='login-main-div'>
             <Row className='justify-content-center'>
                 <Col lg={8} md={10}>

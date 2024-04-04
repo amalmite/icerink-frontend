@@ -3,7 +3,7 @@ import "./Test.css";
 import { Mycontext } from "./context";
 import { useNavigate } from "react-router-dom";
 
-function Test() {
+function Cart() {
   const [expanded, setExpanded] = useState(true);
 
   const { booking, setBooking, total, setTotal } = useContext(Mycontext);
@@ -190,7 +190,7 @@ function Test() {
                       </table>{" "}
                       <div className="cart-footer text-center">
                         <button
-                          className="btn btn-outline-primary"
+                          className="make-payment"
                           onClick={() => navigate("/user")}
                         >
                           Make Payment
@@ -208,4 +208,4 @@ function Test() {
   );
 }
 
-export default Test;
+export default Cart;

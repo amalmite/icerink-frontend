@@ -6,7 +6,7 @@ import { Product } from "../ProductDetails";
 
 const ProductCard = ({ image, name, id }) => {
   const { booking, setBooking } = useContext(Mycontext);
-  const [added, setAdded] = useState(false); 
+  const [added, setAdded] = useState(false);
 
   const handleSubmit = (e, id) => {
     e.preventDefault();
@@ -24,14 +24,17 @@ const ProductCard = ({ image, name, id }) => {
           data: productData,
         },
       ]);
-      setAdded(true); 
+      setAdded(true);
       console.log(booking);
     } else {
     }
   };
 
   return (
+
+
     <div className="product-card shadow b-zero">
+      {/* Product cards */}
       <div
         className="d-flex justify-content-center align-content-center py-2"
         style={{ height: "10rem" }}
@@ -44,7 +47,7 @@ const ProductCard = ({ image, name, id }) => {
           <span>{name}</span>
         </div>
         <button
-          className="product-action btn btn-danger"
+          className="product-action"
           type="button"
           onClick={(e) => handleSubmit(e, id)}
         >

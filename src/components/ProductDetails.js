@@ -119,7 +119,7 @@ export const Product = [
     sub_title: "EXPERT SKATING COACHING FOR ALL LEVELS",
     type: "skate",
     // duration: "3 Months",
-    color: "#D33A03",
+    color: "#BF364F",
   },
 
   {
@@ -132,7 +132,7 @@ export const Product = [
     sub_title: "EXPERT SKATING COACHING FOR ALL LEVELS",
     type: "skate",
     // duration: "6 Months",
-    color: "#F25C05",
+    color: "#F26430",
   },
   {
     id:'11',

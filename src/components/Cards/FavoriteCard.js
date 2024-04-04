@@ -6,6 +6,7 @@ const FavoriteCard = ({ image, month, price, title, description }) => {
 
   return (
     <>
+    {/* Favorite card */}
       <Card className="b-zero">
         <img
           variant="top"

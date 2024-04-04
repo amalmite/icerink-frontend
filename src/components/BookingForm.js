@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import "./BookingForm.css";
 import { Mycontext } from "./context";
+import { Form } from "react-bootstrap";
 
 const BookingForm = () => {
-  const {booking,setBooking}=useContext(Mycontext)
+  const { booking, setBooking } = useContext(Mycontext);
   const [formData, setFormData] = useState({
-    selectedDate: '',
-    membership: '',
-    selectedSession: '',
-    numAdmits: ''
+    selectedDate: "",
+    membership: "",
+    selectedSession: "",
+    numAdmits: "",
   });
 
   const handleInputChange = (e) => {
@@ -19,13 +20,60 @@ const BookingForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setBooking({ ...booking, ...formData });
-    console.log('Form data submitted:', formData);
+    console.log("Form data submitted:", formData);
   };
-
 
   return (
     <>
-      <h5 className="title-bg">BOOK NOW</h5>
+      <div>
+        <h5 className="title-bg">BOOK NOW</h5>
+        <Form className="p-4" onClick={handleSubmit}>
+          <input
+            type="date"
+            placeholder="date"
+            className="mt-2 mb-3 p-2"
+            value={formData.selectedDate}
+            onChange={handleInputChange}
+          />
+
+          <select
+            className="mt-3 mb-3 p-2"
+            value={formData.membership}
+            onChange={handleInputChange}
+          >
+            <option>Select Membership</option>
+            <option value="65">Skate 65</option>
+            <option value="55">Skate 55</option>
+            <option value="3">Skate with Coach</option>
+          </select>
+
+          <select
+            className="mt-3 mb-3 p-2"
+            value={formData.selectedSession}
+            onChange={handleInputChange}
+          >
+            <option>Select Session</option>
+            <option value="1">11:00 - 12:00</option>
+            <option value="2">12:10 - 01:10</option>
+            <option value="3">01:20 - 02:20</option>
+            <option value="4">02:30 - 03:30</option>
+            <option value="5">03:40 - 04:20</option>
+            <option value="6">01:20 - 02:20</option>
+          </select>
+
+          <input
+            className="mt-3 mb-3 p-2"
+            type="number"
+            placeholder="Number of Admissions"
+            value={formData.numAdmits}
+            onChange={handleInputChange}
+          />
+          <button className="form-button mt-1" type="submit">
+            CHECK NOW
+          </button>
+        </Form>
+      </div>
+      {/* <h5 className="title-bg">BOOK NOW</h5>
       <div className="booking-container effect2">
       <form onSubmit={handleSubmit}>
         <div className="booking-field">
@@ -78,7 +126,7 @@ const BookingForm = () => {
           CHECK NOW
         </button>
       </form>
-    </div>
+    </div> */}
     </>
   );
 };

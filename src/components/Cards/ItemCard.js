@@ -3,8 +3,14 @@ import Card from "react-bootstrap/Card";
 import "./ItemCard.css";
 
 const ItemCard = ({ image, title, ft }) => {
+
+
+
   return (
     <>
+
+    {/* Membsership cards */}
+    
       <Card className="item-card b-zero shadow-sm">
         <Card.Img
           variant="top"
