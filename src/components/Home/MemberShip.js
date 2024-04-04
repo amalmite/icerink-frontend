@@ -38,7 +38,7 @@ const MemberShip = () => {
         <Row className="justify-content-center px-md-5 p-sm-2">
           {membershipProduct.map((product) => (
             <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="d-flex justify-content-center">
-              <div style={{ width: "260px" ,padding:'2%' }}>
+              <div style={{ width: "260px" ,padding:'3%' }}>
                 <ItemCard
                   image={product.image}
                   ft="BOOK NOW"
