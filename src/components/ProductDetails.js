@@ -131,7 +131,6 @@ export const Product = [
     image: skate55,
     sub_title: "EXPERT SKATING COACHING FOR ALL LEVELS",
     type: "skate",
-    // duration: "6 Months",
     color: "#F26430",
   },
   {

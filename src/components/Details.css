@@ -11,8 +11,7 @@
   }
   .p-text{
     /* padding-right: 65px !important; */
-    padding-right: 2% !important;
-
+    padding-right: 4% !important;
     text-align: justify;
 
   }
@@ -23,4 +22,8 @@
     /* margin-top:115px !important; */
     margin-top:5% !important;
 
+  }
+
+  .booking-main{
+    margin: 40px 33px 0px 40px;
   }

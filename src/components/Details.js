@@ -83,7 +83,7 @@ const Details = () => {
                 />
               </div>
             </Col>
-            <Col xs={12} md={6} className="p-2">
+            <Col xs={12} md={6} className="p-3">
               <h3>{productDetails.title}</h3>
               <h5>{productDetails.sub_title}</h5>
               <p className="p-text">{productDetails.description}</p>
@@ -138,7 +138,7 @@ const Details = () => {
 
         {/* Booking Form */}
 
-        <div style={{ marginTop: "10%" }}>
+        <div className="booking-main">
           <div className="booking-body">
             <h5 className="title-bg">BOOK NOW</h5>
             <form className="row g-4" onSubmit={handleSubmit}>
