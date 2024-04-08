@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import './UserDetails.css'
 import cardimg1 from '../../images/carousal1.jpg'
 import { useNavigate } from 'react-router-dom';
-import { Mycontext } from '../context';
+import AuthContext from '../Context/AuthContext';
 
 
 const UserDetails = () => {
 
     const navigate=useNavigate()
-    const {userData,setUserData}=useContext(Mycontext)
+    const {userData,setUserData}=useContext(AuthContext)
     
       const handleChange = (e) => {
         const { name, value } = e.target;

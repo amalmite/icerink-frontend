@@ -1,12 +1,12 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import "./Test.css";
-import { Mycontext } from "./context";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "./Context/AuthContext";
 
 function Cart() {
   const [expanded, setExpanded] = useState(true);
 
-  const { booking, setBooking, total, setTotal } = useContext(Mycontext);
+  const { booking, setBooking, total, setTotal } = useContext(AuthContext);
   const navigate = useNavigate();
   const expandedContainerRef = useRef();
   useEffect(() => {

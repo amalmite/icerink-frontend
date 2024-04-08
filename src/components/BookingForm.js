@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./BookingForm.css";
-import { Mycontext } from "./context";
+// import { Mycontext } from "./context";
+import AuthContext from "./Context/AuthContext";
 import { Form } from "react-bootstrap";
 
 const BookingForm = () => {
-  const { booking, setBooking } = useContext(Mycontext);
+  const { booking, setBooking } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     selectedDate: "",
     membership: "",

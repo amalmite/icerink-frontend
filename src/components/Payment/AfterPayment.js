@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import image from '../../images/carousal1.jpg'
 import { Card, CardBody, Row, Col, CardTitle } from "react-bootstrap";
 import './AfterPayment.css'
-import { Mycontext } from '../context';
+import AuthContext from '../Context/AuthContext';
 
 const AfterPayment = () => {
-  const{booking,userData,total}=useContext(Mycontext)
+  const{booking,userData,total}=useContext(AuthContext)
 
   return (
 

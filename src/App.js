@@ -8,9 +8,10 @@ import Footer from './frontend_components/Footer';
 import UserDetails from './components/UserDetails/UserDetails';
 import About from './components/About/About';
 import Contact from './components/Contact/Contact';
-import { Mycontext } from './components/context';
-import { useState } from 'react';
 import Login from './components/Auth/Login';
+import Register from './components/Auth/Register';
+import { AuthProvider } from './components/Context/AuthContext';
+import Otp from './components/Auth/Otp';
 
 
 const MainLayout = ({ children }) => (
@@ -25,22 +26,14 @@ const MainLayout = ({ children }) => (
 
 
 function App() {
-  const [booking, setBooking] = useState([])
-    const[total,setTotal]=useState(0)
-    const [userData, setUserData] = useState({
-      fullName: "",
-      email: "",
-      mobileNumber: "",
-      address: "",
-    });
-
+  
 
 
   return (
 
     <div>
       <Router>
-      <Mycontext.Provider value={{booking,setBooking,setTotal,total,userData,setUserData}}>
+      <AuthProvider>
         <Routes>
           <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
           <Route path="/details/:id" element={<MainLayout><Details /></MainLayout>} />
@@ -48,9 +41,14 @@ function App() {
           <Route path="/payment" element={<MainLayout><AfterPayment /></MainLayout>} />
           <Route path='/about' element={<MainLayout><About/></MainLayout>}/>
           <Route path='/contact' element={<MainLayout><Contact/></MainLayout>}/>
+          
           <Route path="/login" element={<Login />} />
+          <Route path="/otp" element={<Otp />} />
+
+          <Route path="/register" element={<Register />} />
+
         </Routes>
-        </Mycontext.Provider>
+        </AuthProvider>
       </Router>
     </div>
   );

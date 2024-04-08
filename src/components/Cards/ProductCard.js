@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import "./ProductCard.css";
 import { Image } from "react-bootstrap";
-import { Mycontext } from "../context";
 import { Product } from "../ProductDetails";
+import AuthContext from "../Context/AuthContext";
 
 const ProductCard = ({ image, name, id }) => {
-  const { booking, setBooking } = useContext(Mycontext);
+  const { booking, setBooking } = useContext(AuthContext);
   const [added, setAdded] = useState(false);
 
   const handleSubmit = (e, id) => {

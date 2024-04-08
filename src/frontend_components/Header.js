@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../images/logo.png';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../components/Context/AuthContext';
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false); // This state controls the collapse
   const navigate = useNavigate();
+  const {logout}=useContext(AuthContext)
 
   // This function is used for navigation and closing the collapse
   const navigateAndCollapse = (path) => {
@@ -39,6 +41,11 @@ const Header = () => {
         <Nav.Link onClick={() => navigateAndCollapse('/')} className='px-4 text-white nav-link-hover d-flex align-items-center justify-content-center'>Home</Nav.Link>
         <Nav.Link onClick={() => navigateAndCollapse('/about')}className='px-4 text-white nav-link-hover d-flex align-items-center justify-content-center'>About</Nav.Link>
         <Nav.Link onClick={() => navigateAndCollapse('/contact')} className='px-4 text-white nav-link-hover d-flex align-items-center justify-content-center'>Contact</Nav.Link>
+        {localStorage.getItem('tokens')?
+        <Nav.Link onClick={() => logout()} className='px-4 text-white nav-link-hover d-flex align-items-center justify-content-center'>Logout</Nav.Link>:
+        ''
+        }
+        
       </Nav>
     </Navbar.Collapse>
   </Container>

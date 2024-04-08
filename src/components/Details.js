@@ -5,7 +5,7 @@ import Cart from "./Cart";
 import ProductCard from "./Cards/ProductCard";
 import { Product } from "./ProductDetails";
 import { useParams } from "react-router-dom";
-import { Mycontext } from "./context";
+import AuthContext from "./Context/AuthContext";
 
 const Details = () => {
   const skateProduct = Product.filter((product) => product.type === "product");
@@ -13,7 +13,7 @@ const Details = () => {
   const { id } = useParams();
   const productDetails = Product.find((product) => product.id === id);
 
-  const { setBooking } = useContext(Mycontext);
+  const { setBooking } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     selectDate: "",
     membership: "",
