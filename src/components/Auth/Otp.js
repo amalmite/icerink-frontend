@@ -1,13 +1,12 @@
 
 import React, { useState } from 'react';
 import './Otp.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../utils/axiosIntance';
 import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Otp = () => {
-  const { email } = useParams();
   const [otp, setOtp] = useState({
     otp1: '',
     otp2: '',
@@ -88,11 +87,8 @@ const Otp = () => {
             onKeyUp={inputfocus}
           />
         ))}
-
-
         </div>
         <button className='validate'>Submit</button>
-
       </form>
     </div>
   );

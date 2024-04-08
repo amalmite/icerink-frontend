@@ -12,6 +12,9 @@ import Login from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import { AuthProvider } from './components/Context/AuthContext';
 import Otp from './components/Auth/Otp';
+import Forgotpassword from './components/Auth/Forgotpassword';
+import Resetpassword from './components/Auth/Resetpassword';
+import UserProfile from './components/Profile/UserProfile';
 
 
 const MainLayout = ({ children }) => (
@@ -40,11 +43,16 @@ function App() {
           <Route path="/user" element={<MainLayout><UserDetails /></MainLayout>} />
           <Route path="/payment" element={<MainLayout><AfterPayment /></MainLayout>} />
           <Route path='/about' element={<MainLayout><About/></MainLayout>}/>
+          
           <Route path='/contact' element={<MainLayout><Contact/></MainLayout>}/>
+          <Route path='/profile' element={<MainLayout><UserProfile/></MainLayout>}/>
+
+          
           
           <Route path="/login" element={<Login />} />
           <Route path="/otp" element={<Otp />} />
-
+          <Route path="/forgotpassword" element={<Forgotpassword />} />
+          <Route path="/reset-password/:uidb64/:token"  element={<Resetpassword />} />
           <Route path="/register" element={<Register />} />
 
         </Routes>
