@@ -15,6 +15,7 @@ import Otp from './components/Auth/Otp';
 import Forgotpassword from './components/Auth/Forgotpassword';
 import Resetpassword from './components/Auth/Resetpassword';
 import UserProfile from './components/Profile/UserProfile';
+import Checkout from './components/Checkout';
 
 
 const MainLayout = ({ children }) => (
@@ -46,6 +47,8 @@ function App() {
           
           <Route path='/contact' element={<MainLayout><Contact/></MainLayout>}/>
           <Route path='/profile' element={<MainLayout><UserProfile/></MainLayout>}/>
+          <Route path='/checkout' element={<MainLayout><Checkout/></MainLayout>}/>
+
 
           
           

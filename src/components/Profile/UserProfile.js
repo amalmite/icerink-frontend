@@ -1,26 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import axiosInstance from '../utils/axiosIntance';
+import axios from 'axios';
+
 
 const UserProfile = () => {
-  const [userData, setUserData] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
-    const getUserData = async () => {
+    // Retrieve session ID from local storage
+    const sessionID = localStorage.getItem('session_id');
+
+    // Make authenticated API request
+    const fetchData = async () => {
       try {
-        const response = await axiosInstance.get("api/user/profile/");
-        setUserData(response.data);
+        const response = await axios.get('your-backend-url/api/data', {
+          headers: {
+            Authorization: `Bearer ${sessionID}` // Include session ID in authorization header
+          }
+        });
+        console.log(response.data);
+        setData(response.data);
       } catch (error) {
-        console.error(error);
+        // Handle error (e.g., session expired)
+        console.error('API request failed:', error);
       }
     };
 
-    getUserData();
-  }, []);
+    if (sessionID) {
+      fetchData(); // Fetch data only if session ID exists
+    }
+
+  }, []); // Execute once on component mount
 
   return (
     <section style={{ backgroundColor: '#f4f5f7' }}>
-      <Container className="py-5">
+      {/* <Container className="py-5">
         <Row className="justify-content-center align-items-center">
           <Col lg="6" className="mb-4 mb-lg-0">
             <Card className="mb-3" style={{ borderRadius: '.5rem' }}>
@@ -58,7 +73,7 @@ const UserProfile = () => {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </section>
   );
 };

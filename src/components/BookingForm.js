@@ -1,15 +1,17 @@
 import React, { useContext, useState } from "react";
 import "./BookingForm.css";
-// import { Mycontext } from "./context";
 import AuthContext from "./Context/AuthContext";
 import { Form } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import { Product } from "./ProductDetails";
+
 
 const BookingForm = () => {
-  const { booking, setBooking } = useContext(AuthContext);
+  const { setBooking } = useContext(AuthContext);
   const [formData, setFormData] = useState({
-    selectedDate: "",
+    selectDate: "",
     membership: "",
-    selectedSession: "",
+    selectSession: "",
     numAdmits: "",
   });
 
@@ -20,114 +22,84 @@ const BookingForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setBooking({ ...booking, ...formData });
-    console.log("Form data submitted:", formData);
+    
+    setBooking((prevBooking) => [
+      ...prevBooking,
+      {
+        quantity: formData.numAdmits,
+        date: formData.selectDate,
+        time: formData.selectSession,
+      },
+    ]);
+    setFormData({
+      selectDate: "",
+      membership: "",
+      selectSession: "",
+      numAdmits: "",
+    });
   };
 
-  return (
+    return (
     <>
       <div>
-        <h5 className="title-bg">BOOK NOW</h5>
-        <Form className="p-4" onClick={handleSubmit}>
-          <input
-            type="date"
-            placeholder="date"
-            className="mt-2 mb-3 p-2"
-            value={formData.selectedDate}
-            onChange={handleInputChange}
-          />
+        <Card style={{ borderRadius: "0px", border: "0px" }}>
+          <Card.Header className="form-header" style={{ height: "3rem" }}>
+            BOOK NOW
+          </Card.Header>
+          < Form className="p-4" onSubmit={handleSubmit}>
+            <input
+              type="date"
+              className="mt-2 mb-3 p-2"
+              value={formData.selectDate}
+              id="selectDate"
+              onChange={handleInputChange}
+              required
+            />
 
-          <select
-            className="mt-3 mb-3 p-2"
-            value={formData.membership}
-            onChange={handleInputChange}
-          >
-            <option>Select Membership</option>
-            <option value="65">Skate 65</option>
-            <option value="55">Skate 55</option>
-            <option value="3">Skate with Coach</option>
-          </select>
+            <select
+                  id="membership"
+                  className="mt-2 mb-3 p-2"
+                  value={formData.membership}
+                  onChange={handleInputChange}
+                >
+                  <option>Select Membership</option>
+                  {Product.filter((product) => product.type !== "product").map(
+                    (option) => (
+                      <option key={option.id} value={option.id}>
+                        {option.title}-AED{option.price}
+                      </option>
+                    )
+                  )}
+                </select>
+            <select
+              className="mt-3 mb-3 p-2"
+              value={formData.selectedSession}
+              onChange={handleInputChange}
+            >
+              <option>Select Session</option>
+              <option value="1">11:00 - 12:00</option>
+              <option value="2">12:10 - 01:10</option>
+              <option value="3">01:20 - 02:20</option>
+              <option value="4">02:30 - 03:30</option>
+              <option value="5">03:40 - 04:20</option>
+              <option value="6">01:20 - 02:20</option>
+            </select>
 
-          <select
-            className="mt-3 mb-3 p-2"
-            value={formData.selectedSession}
-            onChange={handleInputChange}
-          >
-            <option>Select Session</option>
-            <option value="1">11:00 - 12:00</option>
-            <option value="2">12:10 - 01:10</option>
-            <option value="3">01:20 - 02:20</option>
-            <option value="4">02:30 - 03:30</option>
-            <option value="5">03:40 - 04:20</option>
-            <option value="6">01:20 - 02:20</option>
-          </select>
+            <input
+              className="mt-3 mb-3 p-2"
+              type="number"
+              id="numAdmits"
+              placeholder="Number of Admissions"
+              value={formData.numAdmits}
+              onChange={handleInputChange}
+            />
+          </Form>
 
-          <input
-            className="mt-3 mb-3 p-2"
-            type="number"
-            placeholder="Number of Admissions"
-            value={formData.numAdmits}
-            onChange={handleInputChange}
-          />
-          <button className="form-button mt-1" type="submit">
-            CHECK NOW
-          </button>
-        </Form>
+          <Card.Footer className="form-header form-button" style={{ height: "4rem" }}>
+            BOOK NOW 
+          </Card.Footer>
+        </Card>
       </div>
-      {/* <h5 className="title-bg">BOOK NOW</h5>
-      <div className="booking-container effect2">
-      <form onSubmit={handleSubmit}>
-        <div className="booking-field">
-          <input
-            type="date"
-            id="selectedDate"
-            value={formData.selectedDate}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-        <div className="booking-field">
-          <select
-            id="membership"
-            value={formData.membership}
-            onChange={handleInputChange}
-          >
-            <option value="">Select Membership</option>
-            <option value="65">Skate 65</option>
-            <option value="55">Skate 55</option>
-            <option value="3">Skate with Coach</option>
-          </select>
-        </div>
-        <div className="booking-field">
-          <select
-            id="selectedSession"
-            value={formData.selectedSession}
-            onChange={handleInputChange}
-          >
-            <option value="">Select Session</option>
-            <option value="session1">11:00 AM - 12:00 PM</option>
-            <option value="session2">12:30 PM - 01:30 PM</option>
-            <option value="session3">2:00 PM - 03:00 PM</option>
-            <option value="session4">03:30 PM - 04:30 PM</option>
-            <option value="session5">05:00 AM - 06:00 PM</option>
-          </select>
-        </div>
-        <div className="booking-field">
-          <input
-            type="number"
-            id="numAdmits"
-            value={formData.numAdmits}
-            onChange={handleInputChange}
-            min={1}
-            required
-            placeholder="Number of Admissions"
-          />
-        </div>
-        <button className="form-button" type="submit">
-          CHECK NOW
-        </button>
-      </form>
-    </div> */}
     </>
   );
 };

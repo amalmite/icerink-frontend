@@ -1,60 +1,76 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import "./ProductCard.css";
 import { Image } from "react-bootstrap";
-import { Product } from "../ProductDetails";
-import AuthContext from "../Context/AuthContext";
+// import AuthContext from "../Context/AuthContext";
+import { Col, Row } from "react-bootstrap";
 
-const ProductCard = ({ image, name, id }) => {
-  const { booking, setBooking } = useContext(AuthContext);
-  const [added, setAdded] = useState(false);
+const ProductCard = ({ image, name, id ,price,description}) => {
+  console.log(description);
+  // const { booking, setBooking } = useContext(AuthContext);
+  // const [added, setAdded] = useState(false);
 
-  const handleSubmit = (e, id) => {
-    e.preventDefault();
+  // const handleSubmit = (e, id) => {
+  //   e.preventDefault();
 
-    const productData = Product.find((option) => option.id === id);
+  //   const productData = Product.find((option) => option.id === id);
 
-    const isAdded = booking.some((product) => product.productId === id);
+  //   const isAdded = booking.some((product) => product.productId === id);
 
-    if (!isAdded) {
-      setBooking((prevBooking) => [
-        ...prevBooking,
-        {
-          productId: id,
-          quantity: "1",
-          data: productData,
-        },
-      ]);
-      setAdded(true);
-      console.log(booking);
-    } else {
-    }
-  };
+  //   if (!isAdded) {
+  //     setBooking((prevBooking) => [
+  //       ...prevBooking,
+  //       {
+  //         productId: id,
+  //         quantity: "1",
+  //         data: productData,
+  //       },
+  //     ]);
+  //     setAdded(true);
+  //     console.log(booking);
+  //   } else {
+  //   }
+  // };
 
   return (
+    <>
+<Row>
+          <Col lg="3" md="12" className="mb-4 mb-lg-0">
+            <div className="product-card shadow b-zero">
+              {/* Product cards */}
+              <div
+                className="d-flex justify-content-center align-content-center py-2"
+                style={{ height: "7rem" }}
+              >
+                <Image src={image} alt="Product" className="object-fit-cover" />
+              </div>
+              <div className="product-content">
+                <div className="text-2">
+                  <span>AED {price}</span>
+                </div>
 
+                <div className="container2">
+                  <div className="sub-container ">+</div>
+                  <div className="sub-container sub-quantity">2</div>
+                  <div className="sub-container">-</div>
+                </div>
+              </div>
+            </div>
+          </Col>
 
-    <div className="product-card shadow b-zero">
-      {/* Product cards */}
-      <div
-        className="d-flex justify-content-center align-content-center py-2"
-        style={{ height: "10rem" }}
-      >
-        <Image src={image} alt="Product" className="object-fit-cover" />
-      </div>
-      <div className="product-content">
-        <p className="text-1">stock 25+</p>
-        <div className="text-2">
-          <span>{name}</span>
-        </div>
-        <button
-          className="product-action"
-          type="button"
-          onClick={(e) => handleSubmit(e, id)}
-        >
-          {added ? "Already added" : "Add to Cart"}
-        </button>
-      </div>
-    </div>
+          <Col className=" mb-4 mb-lg-0">
+            <p>
+              <strong>{name}</strong>
+            </p>
+<p>{description}</p>
+<div className="d-flex justify-content-end">
+
+          <button className="product-action">Add to cart</button>
+</div>
+          </Col>
+        <hr className="my-4" />
+          </Row>
+
+    </>
   );
 };
 

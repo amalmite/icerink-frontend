@@ -1,10 +1,9 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { jwtDecode } from "jwt-decode";
   import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosIntance";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const AuthContext = createContext();
 
 export default AuthContext;
@@ -30,10 +29,13 @@ export const AuthProvider = ({ children }) => {
     e.preventDefault();
     try {
       const response = await axiosInstance.post("api/login/", {
-        username: e.target.username.value,
-        password: e.target.password.value,
-      });
-
+        // const response = await axios.post('http://127.0.0.1:8000/api/employees-login/', {
+       
+            username: e.target.username.value,
+            password: e.target.password.value
+          
+        });
+        console.log(response.data);
       if (response.status === 200) {
         const data = response.data;
         setToken(data.tokens);

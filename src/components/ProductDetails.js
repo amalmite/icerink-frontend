@@ -138,25 +138,32 @@ export const Product = [
     title:'Helmet',
     price:'25',
     image:pro1,
-    type:'product'
+    type:'product',
+    description:'Fill the ice tray with water and place one penguin figure in each divided section.  Freeze the water with the penguins inside.Once frozen, pull out the ice cubes and place them on the baking sheet.Blow the ice cube through the straw to skate your penguin around'
+    
   },{
     id:'12',
     title:'Seal',
     price:'25',
     image:pro2,
-    type:'product'
+    type:'product',
+    description:'Fill the ice tray with water and place one penguin figure in each divided section.  Freeze the water with the penguins inside.Once frozen, pull out the ice cubes and place them on the baking sheet.Blow the ice cube through the straw to skate your penguin around'
+
   },{
     id:'13',
     title:'Penguin',
     price:'25',
     image:pro3,
-    type:'product'
+    type:'product',
+    description:'Fill the ice tray with water and place one penguin figure in each divided section.  Freeze the water with the penguins inside.Once frozen, pull out the ice cubes and place them on the baking sheet.Blow the ice cube through the straw to skate your penguin around'
+
   },{
     id:'14',
     title:'Stick',
     price:'25',
     image:pro4,
-    type:'product'
+    type:'product',
+    description:'Fill the ice tray with water and place one penguin figure in each divided section.  Freeze the water with the penguins inside.Once frozen, pull out the ice cubes and place them on the baking sheet.Blow the ice cube through the straw to skate your penguin around'
   }
 ];
 

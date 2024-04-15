@@ -8,7 +8,7 @@ import image3 from '../../images/carousal3.jpg';
 const HomeCarousel = () => {
   return (
     <>
-      <Carousel>
+      <Carousel style={{width:'100%',height:'100%'}}>
         <Carousel.Item interval={1000}>
           <ExampleCarouselImage src={image1}/>
           <div className="overlay"></div> {/* Add overlay */}

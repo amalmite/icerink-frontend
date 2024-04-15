@@ -1,76 +1,78 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./Test.css";
 import { useNavigate } from "react-router-dom";
 import AuthContext from "./Context/AuthContext";
 
 function Cart() {
-  const [expanded, setExpanded] = useState(true);
+  // const [expanded, setExpanded] = useState(true);
 
-  const { booking, setBooking, total, setTotal } = useContext(AuthContext);
+  const { total } = useContext(AuthContext);
   const navigate = useNavigate();
-  const expandedContainerRef = useRef();
-  useEffect(() => {
-    let totalPrice = 0;
-    booking.map((product) => {
-      totalPrice += product.data.price * product.quantity;
-      return null;
-    });
-    setTotal(totalPrice);
-  }, [booking, setTotal]);
+  // const expandedContainerRef = useRef();
+  // useEffect(() => {
+  //   let totalPrice = 0;
+  //   booking.map((product) => {
+  //     totalPrice += product.data.price * product.quantity;
+  //     return null;
+  //   });
+  //   setTotal(totalPrice);
+  // }, [booking, setTotal]);
 
-  const incrementQuantity = (productId) => {
-    const updatedBooking = [...booking];
-    const productIndex = updatedBooking.findIndex(
-      (product) => product.productId === productId
-    );
-    updatedBooking[productIndex].quantity = String(
-      Number(updatedBooking[productIndex].quantity) + 1
-    );
-    setBooking(updatedBooking);
-  };
+  // const incrementQuantity = (productId) => {
+  //   const updatedBooking = [...booking];
+  //   const productIndex = updatedBooking.findIndex(
+  //     (product) => product.productId === productId
+  //   );
+  //   updatedBooking[productIndex].quantity = String(
+  //     Number(updatedBooking[productIndex].quantity) + 1
+  //   );
+  //   setBooking(updatedBooking);
+  // };
 
-  const decrementQuantity = (productId) => {
-    const updatedBooking = [...booking];
-    const productIndex = updatedBooking.findIndex(
-      (p) => p.productId === productId
-    );
-    if (productIndex !== -1 && updatedBooking[productIndex].quantity > 1) {
-      updatedBooking[productIndex].quantity -= 1;
-      setBooking(updatedBooking);
-    } else {
-      updatedBooking.splice(productIndex, 1);
-      setBooking(updatedBooking);
-    }
-  };
-  const toggleExpand = () => {
-    setExpanded(!expanded);
-    setTimeout(() => {
-      if (expandedContainerRef.current) {
-        expandedContainerRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: !expanded ? "start" : "end",
-        });
-      }
-    }, 50);
-  };
+  // const decrementQuantity = (productId) => {
+  //   const updatedBooking = [...booking];
+  //   const productIndex = updatedBooking.findIndex(
+  //     (p) => p.productId === productId
+  //   );
+  //   if (productIndex !== -1 && updatedBooking[productIndex].quantity > 1) {
+  //     updatedBooking[productIndex].quantity -= 1;
+  //     setBooking(updatedBooking);
+  //   } else {
+  //     updatedBooking.splice(productIndex, 1);
+  //     setBooking(updatedBooking);
+  //   }
+  // };
+  // const toggleExpand = () => {
+  //   setExpanded(!expanded);
+  //   setTimeout(() => {
+  //     if (expandedContainerRef.current) {
+  //       expandedContainerRef.current.scrollIntoView({
+  //         behavior: "smooth",
+  //         block: !expanded ? "start" : "end",
+  //       });
+  //     }
+  //   }, 50);
+  // };
 
   return (
     <>
       <div
-        className={`bottom-container ${expanded ? "expanded" : ""}`}
-        ref={expandedContainerRef}
+        // className={`bottom-container ${expanded ? "expanded" : ""}`}
+        // ref={expandedContainerRef}
+        className="bottom-container"
       >
-        <div className="booking-details" onClick={toggleExpand}>
-          <h4>Booking Details</h4>
+        <div className="booking-details">
+          <h4>Total : AED {total}</h4>
 
-          <h4>Total: AED {total}</h4>
+          <button style={{backgroundColor:'white',color:'gray'}} className="px-3" onClick={()=>navigate('/checkout')}>Continue</button>
+
         </div>
 
-        <div className="scrollable-content">
+        {/* <div className="scrollable-content">
           <div className="contentbar">
-            <div className="row">
+            <div className="row"> */}
               {/* left cloumn: Cart */}
-              <div className="col-lg-7">
+              {/* <div className="col-lg-7">
                 <div className="card m-b-30">
                   <div className="card-body">
                     <div className="cart-container">
@@ -137,10 +139,10 @@ function Cart() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* right cloumn: Coupon and Subtotal */}
-              <div className="col-lg-5">
+              {/* <div className="col-lg-5">
                 <div className="card m-b-30">
                   <div className="card-body">
                     <div className="order-note">
@@ -201,8 +203,8 @@ function Cart() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
       </div>
     </>
   );

@@ -63,3 +63,13 @@ select {
   padding: 5%;
   min-height: 25rem;
 } */
+
+.form-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0367A6 !important;
+  border-radius: 0px  !important;
+  border: 0px  !important;
+  color: #fff !important;
+}

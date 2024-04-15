@@ -21,8 +21,8 @@
   }
   
   .text-2 {
-    margin-top: 1rem;
-    font-weight: 900;
+    /* margin-top: 1rem;
+    font-weight: 900; */
     text-transform: uppercase;
   }
   
@@ -41,20 +41,43 @@
   
   .product-action {
 
-    margin-top: 1rem;
-    display: inline-block;
-    width: 100%;
+    margin-top: 0.5rem;
+    /* display: inline-block;
+    width: 100%; */
     background-color:#B7364F ;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    /* border-radius: 4px; */
+    /* font-size: 0.875rem; */
     line-height: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
+    /* font-weight: 700; */
+    /* letter-spacing: 0.1em; */
     text-transform: uppercase;
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
     border: none;
   }
   
+  .container2 {
+    display: flex;
+    justify-content: center; /* Align items horizontally in the center */
+    gap: 10%; /* Add gap between items */
+    background-color:#B7364F ;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 4px;
+
+
+  }
+  .sub-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:40px;
+    height: 20px;
+color: white;    
+  }
+.sub-quantity{
+  background-color: white;
+  color: black !important;
+}
