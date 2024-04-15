@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import axiosInstance from '../utils/axiosIntance';
+// import { Container, Row, Col, Card } from 'react-bootstrap';
+// import axiosInstance from '../utils/axiosIntance';
 import axios from 'axios';
 
 
 const UserProfile = () => {
   const [data, setData] = useState(null);
-
+console.log(data);
   useEffect(() => {
     // Retrieve session ID from local storage
     const sessionID = localStorage.getItem('session_id');

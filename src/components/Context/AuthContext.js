@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { jwtDecode } from "jwt-decode";
+// import { jwtDecode } from "jwt-decode";
   import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosIntance";
 import { toast } from "react-toastify";
@@ -16,11 +16,11 @@ export const AuthProvider = ({ children }) => {
       ? JSON.parse(localStorage.getItem("token"))
       : null
   );
-  const [user, setUser] = useState(
-    localStorage.getItem("token")
-      ? jwtDecode(localStorage.getItem("token"))
-      : null
-  );
+  // const [user, setUser] = useState(
+  //   localStorage.getItem("token")
+  //     ? jwtDecode(localStorage.getItem("token"))
+  //     : null
+  // );
   const [loading, setLoading] = useState(false);
 
 
@@ -69,7 +69,7 @@ export const AuthProvider = ({ children }) => {
 
 const logout = () => {
     setToken(null);
-    setUser(null);
+    // setUser(null);
     localStorage.removeItem('tokens');
     navigate('/login');
 };
@@ -93,6 +93,8 @@ const logout = () => {
     setUserData: setUserData,
     login: login,
     logout:logout,
+    token:token,
+    setLoading:setLoading
   };
 
   return (
